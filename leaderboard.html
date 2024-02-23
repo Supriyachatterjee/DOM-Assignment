@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaderBoard</title>
+    <style>
+        #min-btn{
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            /* padding-top: 50px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 40px;
+            background-color: orange;
+        }
+        #max-btn{
+            border:1px solid black;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 40px;
+            background-color: green;
+        }
+        .min-max-btn{
+            display: flex;
+            gap: 70px;
+            justify-content: center;
+        }
+
+        .min-max-value{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            /* align-content: space-evenly; */
+            /* border: 1px solid black; */
+        }
+        #min-value{
+            /* border: 1px solid black; */
+            margin-right: 50px;
+            font-size: 30px;
+        }
+        #max-value{
+            font-size: 30px;
+        }
+        #switch{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding: 0px;
+            grid-gap: 5px;
+            margin: 5px;
+            align-content: space-between;
+            max-width: 650px;
+
+        }
+        button{
+            height: 60px;
+            width: 60px;
+            background-color: antiquewhite;
+            border-radius: 14px;
+            margin: 10px;
+        }
+        #text{
+            width: 50vw;
+            padding: 50px;
+            background-color: beige;
+            border-radius: 15px;
+            font-size: 26px;
+            font-weight:bold ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="min-max-btn">
+            <!-- <div id="min-btn">43
+            </div> -->
+            <input id="min-btn" value="43">
+            <input id="max-btn" value="2019">
+        </div>
+        <div class="min-max-value">
+        <div id="min-value">Min Value</div>
+        <div id="max-value">Max Value</div>
+    </div>
+    <input type="text" id=text>
+    <div id="switch">
+        <!-- <input type="text" id="text"> -->
+        <button onclick="textAppend('1')">1</button>
+        <button onclick="textAppend('2')">2</button>
+        <button onclick="textAppend('3')">3</button>
+        <button onclick="textAppend('4')">4</button>
+        <button onclick="textAppend('5')">5</button>
+        <button onclick="textAppend('6')">6</button>
+        <button onclick="textAppend('7')">7</button>
+        <button onclick="textAppend('8')">8</button>
+        <button onclick="textAppend('9')">9</button>
+        <button onclick="textAppend('0')">0</button>
+        <button id="submit-btn" onclick="calculation()">Enter</button>
+    </div>
+    </div>
+</body>
+<script>
+    let minVal = document.getElementById("min-btn");
+    let maxVal = document.getElementById('max-btn');
+    let display = document.getElementById('text');
+    function textAppend(val){
+        display.value +=val;
+    }
+    function calculation(){
+        let displayValue = display.value;
+        if(displayValue < minVal.value){
+
+            minVal.value = displayValue;
+        }
+        if(displayValue > maxVal.value){
+            maxVal.value = displayValue;
+        }
+        display.value = "";
+    }
+</script>
+</html>
