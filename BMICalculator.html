@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+<h1>Check your BMI</h1>
+<p>Enter your weight and height below to check your BMI results</p>
+<p>Put your weight in here (KG)</p>
+<input type="text" id="input1">
+<p>And your height in here (CM)</p>
+<input type="text" id="input2"><br>
+<button onclick="calculate()">Calculate BMI</button>
+<p id="result"></p>
+</body>
+<script>
+    function calculate(){
+    let weight = document.getElementById('input1').value;
+    let height = document.getElementById('input2').value;
+    let result = (weight) / (height * height);
+    let cal = Math.round(result * 10000 * 10) / 10;
+    if(cal <= 18.4){
+
+        document.getElementById("result").innerText=`Your BMI is ${cal} which means You are UnderWeight`;
+        // console.log("obese");
+    }
+    else if(cal >= 18.5 && cal <= 24.9){
+        document.getElementById("result").innerText=`Your BMI is ${cal} which means You are Normal Weight`;
+    }
+    else if(cal >= 25 && cal <=29.9){
+        document.getElementById("result").innerText=`Your BMI is ${cal} which means You are Overweight`;
+    }
+    else{
+        document.getElementById("result").innerText=`Your BMI is ${cal} which means You are Obese`;
+    }
+}
+</script>
+</html>
